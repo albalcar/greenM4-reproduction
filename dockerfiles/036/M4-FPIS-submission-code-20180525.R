@@ -1,3 +1,6 @@
+track_id <- Tracker(project_name="Modelo_036_entr_pred", experiment_description="Entrenamiento y predicción modelo 036")
+track_id$start()
+
 library(forecast)
 library(smooth)
 library(forecTheta)
@@ -142,3 +145,7 @@ write.csv(all_ffcs, "all-ffcs.csv")
 write.csv(all_lower, "all-lower.csv")
 write.csv(all_upper, "all-upper.csv")
 
+track_id$stop()
+emision <- read.csv("emission.csv")
+emision = emision[nrow(emision),]
+write.csv(emision, file = "entrenamiento_036.csv")
