@@ -14,5 +14,8 @@ install_version("iterators", version="1.0.9")
 install_version("smooth", version="2.3.1")
 install_version("snow", version="0.4-2")
 
+#To import Python libraries in R
+install.packages("reticulate")
+
 sessionInfo()
 
