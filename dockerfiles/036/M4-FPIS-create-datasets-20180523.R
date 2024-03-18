@@ -1,3 +1,9 @@
+#Import eco2ai and measure the CO2 footprint
+library(reticulate)
+Tracker <- import("eco2ai", convert = FALSE)$Tracker
+track_id <- Tracker(project_name="Datos_036", experiment_description="Carga_datos_036")
+track_id$start()
+
 filenames = c("Yearly", "Quarterly", "Monthly", "Weekly", "Daily", "Hourly")
 horizons = c(6, 8, 18, 13, 14, 48)
 freqs = c(1, 4, 12, 52, 7, 168)
@@ -24,4 +30,7 @@ for (d in 1:6){
   close(conn)
   save(series, file=paste0("data/RData/", filenames[d], ".RData"))
 }
-
+track_id$stop()
+emision <- read.csv("emission.csv")
+emision = emision[nrow(emision),]
+write.csv(emision, file = "carga_datos_036.cvs")
