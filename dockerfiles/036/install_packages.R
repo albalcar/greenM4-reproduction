@@ -16,6 +16,8 @@ install_version("snow", version="0.4-2")
 
 #To import Python libraries in R
 install.packages("reticulate")
+#We want to measure the CO2 footprint
+py_install("eco2ai")
 
 sessionInfo()
 
